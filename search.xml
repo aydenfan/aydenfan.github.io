@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Welcome</title>
-    <url>/My-First-Blog/</url>
-    <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/cover5/237143518359060527.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,image_MjAyMDA3MTUxNjIxMDEzOC5wbmc=,size_16,color_FFFFFF,t_70,image/resize,m_lfit,w_962#pic_center" alt="在这里插入图片描述"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>BBN Bilateral-Branch Network with Cumulative Learning for Long-Tailed Visual Recognition</title>
     <url>/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91BBN_%20Bilateral-Branch%20Network%20with%20Cumulative%20Learning%20for%20Long-Tailed%20Visual%20Recognition/</url>
     <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>Our work focuses on tackling the challenging but natural visual recognition task of long-tailed data distribution (i.e., a few classes occupy most of the data, while most classes have rarely few samples). In the literature, class re-balancing strategies (e.g., re-weighting and re-sampling) are the prominent and effective methods proposed to alleviate the extreme imbalance for dealing with long-tailed problems. In this paper , we firstly discover that these rebalancing methods achieving satisfactory recognition accuracy owe to that they could significantly promote the classifier learning of deep networks. However, at the same time, they will unexpectedly damage the representative ability of the learned deep features to some extent. Therefore, we propose a unified Bilateral-Branch Network (BBN) to take care of both representation learning and classifier learning simultaneously, where each branch does perform its own duty separately. In particular , our BBN model is further equipped with a novel cumulative learning strategy, which is designed to first learn the universal patterns and then pay attention to the tail data gradually. Extensive experiments on four benchmark datasets, including the large-scale iNaturalist ones, justify that the proposed BBN can significantly outperform state-of-the-art methods. Furthermore, validation experiments can demonstrate both our preliminary discovery and effectiveness of tailored designs in BBN for long-tailed problems. Our method won the first place in the iNaturalist 2019 large scale species classification competition, and our code is open-source and available at <a href="https://github.com/Megvii-Nanjing/BBN">https://github.com/Megvii-Nanjing/BBN</a>.<span id="more"></span></p>
@@ -33,6 +27,12 @@ IR50 and CIFAR-10-IR50"><br>上图表明了平衡策略对特征学习和分类�
         <tag>不均衡</tag>
         <tag>分类</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Welcome</title>
+    <url>/My-First-Blog/</url>
+    <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/cover5/237143518359060527.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,image_MjAyMDA3MTUxNjIxMDEzOC5wbmc=,size_16,color_FFFFFF,t_70,image/resize,m_lfit,w_962#pic_center" alt="在这里插入图片描述"></p>
+]]></content>
   </entry>
   <entry>
     <title>Cross-X Learning for Fine-Grained Visual Categorization</title>
