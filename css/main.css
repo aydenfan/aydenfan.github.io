@@ -1182,6 +1182,19 @@ pre .javascript .function {
   margin-top: 0;
   text-align: center;
 }
+.site-author-image {
+  display: block;
+  margin: 0 auto;
+  padding: $site-author-image-padding;
+  max-width: 120px;
+  height: $site-author-image-height;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  transition: 2s all;
+}
+.site-author-image:hover {
+  transform: rotate(360deg);
+}
 .links-of-author {
   margin-top: 15px;
 }
@@ -1196,7 +1209,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #feffbe;
+  background: #f2ff26;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2491,7 +2504,7 @@ mjx-container + br {
   padding: 0;
 }
 body {
-  background-image: url("/images/wallhaven.png");
+  background-image: url("/images/sky.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
@@ -2591,7 +2604,7 @@ description .posts-expand .post-meta .post-description {
   background-color: #fff;
   border-radius: 3px;
   font-size: 15px;
-  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.35);
+  box-shadow: inset 0px 0px 10px 0px rgba(19,160,184,0.25);
   border: none !important;
   transition-property: unset;
   padding: 0px 15px;
@@ -2600,7 +2613,7 @@ description .posts-expand .post-meta .post-description {
   color: #fff !important;
   border-radius: 3px;
   font-size: 15px;
-  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.35);
+  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.15);
   background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
 }
 .posts-expand .post-eof {
