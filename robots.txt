@@ -4,12 +4,12 @@ Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
-Allow: /about-me/
+Allow: /about/
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: http://aydenfan.github.io/sitemap.xml
-Sitemap: http://aydenfan.github.io/baidusitemap.xml
+Sitemap: https://aydenfan.github.io/sitemap.xml
+Sitemap: https://aydenfan.github.io/baidusitemap.xml
