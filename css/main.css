@@ -1204,7 +1204,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffd5;
+  background: #0822ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2552,12 +2552,6 @@ code {
   margin: 0px 3px;
   border: 1px solid #999;
 }
-.main-inner {
-  margin-top: 60px;
-}
-.header-inner {
-  margin-top: 60px;
-}
 .highlight figcaption {
   margin: 0em;
   padding: 0.5em;
@@ -2658,7 +2652,7 @@ img.img-topic {
   background: #07b39b;
 }
 .sidebar {
-  box-shadow: inset 10px 10px 10px 10px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.5);
   background-color: rgba(0,0,0,0.75);
 }
 .sidebar-inner {
