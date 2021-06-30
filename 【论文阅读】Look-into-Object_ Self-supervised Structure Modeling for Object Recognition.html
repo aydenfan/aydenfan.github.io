@@ -22,27 +22,27 @@
     var CONFIG = {"hostname":"aydenfan.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="摘要Recognizing objects from subcategories with very subtle differences remains a challenging task due to the large intra-class and small inter-class variation. Recent work tackles this problem in a wea">
+  <meta name="description" content="摘要Most object recognition approaches predominantly focus on learning discriminative visual patterns while overlooking the holistic object structure. Though important, structure modeling usually requir">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cross-X Learning for Fine-Grained Visual Categorization">
-<meta property="og:url" content="https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/index.html">
+<meta property="og:title" content="Self-supervised Structure Modeling for Object Recognition">
+<meta property="og:url" content="https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html">
 <meta property="og:site_name" content="Ayden">
-<meta property="og:description" content="摘要Recognizing objects from subcategories with very subtle differences remains a challenging task due to the large intra-class and small inter-class variation. Recent work tackles this problem in a wea">
+<meta property="og:description" content="摘要Most object recognition approaches predominantly focus on learning discriminative visual patterns while overlooking the holistic object structure. Though important, structure modeling usually requir">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210406103106940.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210406162723433.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2021040616371292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210406214706240.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210617104008566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210616095026176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210616201937356.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210617104419668.png">
 <meta property="article:published_time" content="2021-06-23T07:40:29.000Z">
-<meta property="article:modified_time" content="2021-06-24T02:57:57.896Z">
+<meta property="article:modified_time" content="2021-06-24T01:42:20.647Z">
 <meta property="article:author" content="Ayden Fan">
 <meta property="article:tag" content="分类">
 <meta property="article:tag" content="细粒度">
-<meta property="article:tag" content="注意力">
+<meta property="article:tag" content="自监督">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210406103106940.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210617104008566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/">
+<link rel="canonical" href="https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html">
 
 
 <script id="page-configurations">
@@ -55,7 +55,7 @@
   };
 </script>
 
-  <title>Cross-X Learning for Fine-Grained Visual Categorization | Ayden</title>
+  <title>Self-supervised Structure Modeling for Object Recognition | Ayden</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/">
+    <link itemprop="mainEntityOfPage" href="https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Cross-X Learning for Fine-Grained Visual Categorization
+          Self-supervised Structure Modeling for Object Recognition
         </h1>
 
         <div class="post-meta">
@@ -235,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-24 10:57:57" itemprop="dateModified" datetime="2021-06-24T10:57:57+08:00">2021-06-24</time>
+                <time title="修改时间：2021-06-24 09:42:20" itemprop="dateModified" datetime="2021-06-24T09:42:20+08:00">2021-06-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,7 +248,7 @@
             </span>
 
           
-            <span id="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/" class="post-meta-item leancloud_visitors" data-flag-title="Cross-X Learning for Fine-Grained Visual Categorization" title="阅读次数">
+            <span id="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html" class="post-meta-item leancloud_visitors" data-flag-title="Self-supervised Structure Modeling for Object Recognition" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -270,8 +270,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/" itemprop="commentCount"></span>
+    <a title="valine" href="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -286,20 +286,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>Recognizing objects from subcategories with very subtle differences remains a challenging task due to the large intra-class and small inter-class variation. Recent work tackles this problem in a weakly-supervised manner: object parts are first detected and the corresponding part-specific features are extracted for fine-grained classification. However, these methods typically treat the part-specific features of each image in isolation while neglecting their relationships between different images. In this paper, we propose Cross-X learning, a simple yet effective approach that exploits the relationships between different images and between different network layers for robust multi-scale feature learning. Our approach involves two novel components: (i) a cross-category cross-semantic regularizer that guides the extracted features to represent semantic parts and, (ii) a cross-layer regularizer that improves the robustness of multi-scale features by matching the prediction distribution across multiple layers. Our approach can be easily trained end-to-end and is scalable to large datasets like NABirds. We empirically analyze the contributions of different components of our approach and demonstrate its robustness, effectiveness and state-of-the-art performance on five benchmark datasets. Code is available at https: //github.com/cswluo/CrossX.<span id="more"></span></p>
-<p>从具有非常细微差异的子类别中识别对象仍然是一项具有挑战性的任务，因为类内差异很大，类间差异很小。最近的工作以一种弱监督的方式解决了这个问题：首先检测目标部分，然后提取相应的特定于部分的特征进行细粒度分类。然而，这些方法通常孤立地对待每个图像的特定部分特征，而忽略它们在不同图像之间的关系。在本文中，我们提出了Cross-X学习，这是一种简单而有效的方法，它利用不同图像之间和不同网络层之间的关系来进行稳健的多尺度特征学习。我们的方法包括两个新的组成部分：(I)跨类别跨语义正则化，用于引导提取的特征表示语义部分；(Ii)跨层正则化，通过匹配多层预测分布来提高多尺度特征的鲁棒性。我们的方法可以很容易地端到端训练，并且可以扩展到像NABirds这样的大型数据集。我们实证分析了该方法的不同组成部分的贡献，并在五个基准数据集上展示了它的健壮性、有效性和最先进的性能。代码<a target="_blank" rel="noopener" href="https://github.com/cswluo/CrossX">https://github.com/cswluo/CrossX</a></p>
-<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><p><img src="https://img-blog.csdnimg.cn/20210406103106940.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70" alt=""><br>图1.网络架构。我们的网络通过使用osme块输出多个特征地图。在最后两个阶段中，描述了两个OSME块，每个块都有两个激发，以说明我们的方法。来自阶段L−1(蓝色)和L(红色)的特征地图被组合以生成合并的特征图(橙色)。左上角是合并特征图的合并过程的放大显示。然后，通过GAP或GMP聚合特征图以获得相应的集合特征。来自同一阶段的融合特征被C3S正则化相互约束，并且同时被连接以馈送到fc层生成逻辑值。在转换为类概率后，通过CL正则化对逻辑进行约束，并将其组合用于分类。<br>———————————————————————————————————————</p>
-<h2 id="OSME模块"><a href="#OSME模块" class="headerlink" title="OSME模块"></a>OSME模块</h2><p>OSME（one-squeeze multi-excitation）模块结合代码和结构图给更容易理解：<br><img src="https://img-blog.csdnimg.cn/20210406162723433.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70" alt=""><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class MELayer(nn.Module):</span><br><span class="line">    def __init__(self, channel, reduction=16, nparts=1):</span><br><span class="line">        super(MELayer, self).__init__()</span><br><span class="line">        self.avg_pool = nn.AdaptiveAvgPool2d(1)</span><br><span class="line">        self.nparts = nparts</span><br><span class="line">        parts = list()</span><br><span class="line">        <span class="keyword">for</span> part <span class="keyword">in</span> range(self.nparts):</span><br><span class="line">            parts.append(nn.Sequential(</span><br><span class="line">                nn.Linear(channel, channel // reduction),</span><br><span class="line">                nn.ReLU(inplace=True),</span><br><span class="line">                nn.Linear(channel // reduction, channel),</span><br><span class="line">                nn.Sigmoid()</span><br><span class="line">            ))</span><br><span class="line">        self.parts = nn.Sequential(*parts)</span><br><span class="line">       </span><br><span class="line">    def forward(self, x):</span><br><span class="line">        b, c, _, _ = x.size()</span><br><span class="line">        y = self.avg_pool(x).view(b, c)</span><br><span class="line"></span><br><span class="line">        meouts = list()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nparts):</span><br><span class="line">            meouts.append(x * self.parts[i](y).view(b, c, 1, 1))</span><br><span class="line"></span><br><span class="line">        <span class="built_in">return</span> meouts</span><br></pre></td></tr></table></figure></p>
-<p>设$U=\left[u_{1}, \cdots, u_{C}\right] \in \mathbb{R}^{W \times H \times C}$表示残差块$\tau$的输出特征图。为了生成多个特定于注意的特征图，OSME块通过执行单次压缩(池化)和多次激发(FC)操作来扩展原始残差块。虽然OSME可以产生特定注意力的特征，但引导这些特征具有语义意义是具有挑战性的。</p>
-<h2 id="跨类别跨语义正则化-C-3-S"><a href="#跨类别跨语义正则化-C-3-S" class="headerlink" title="跨类别跨语义正则化($C^{3} S$)"></a>跨类别跨语义正则化($C^{3} S$)</h2><p>接上(挑战)，作者提出通过研究不同图像和不同激励模块的特征映射之间的相关性来学习语义特征。理想情况下，希望从同一个激发模块中提取的特征具有相同的语义含义，即使它们来自不同的带有不同类标记的图像。从不同激励模块提取的特征，即使来自同一幅图像，也应该具有不同的语义。为了实现这一目标，我们引入了跨类别跨语义正则化器（$C^{3}S$），该正则化器最大化了来自同一激励模块的特征的相关性，同时最小化了来自不同激励模块的特征的相关性。<br><img src="https://img-blog.csdnimg.cn/2021040616371292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70" alt=""><br>图2. $C^{3}S$示例。以中间图像为例，$C^{3}S$通过利用来自不同图像（橙色虚线框）的特征和来自不同激励模块（蓝色阴影框）的特征之间的关系，鼓励在不同语义部分激活激励模块$U1$和$U2$。<br>———————————————————————————————————————<br>正则化损失函数公式：</p>
-<script type="math/tex; mode=display">\mathcal{L}_{C^{3} S}(S)=\frac{1}{2}\left(\|S\|_{F}^{2}-2\|\operatorname{diag}(S)\|_{2}^{2}\right)</script><p>$S_{p, p^{\prime}}=\frac{1}{N^{2}} \sum \mathbf{F}_{p}^{T} \mathbf{F}_{p^{\prime}}$<br>$\mathbf{f}_{p} \leftarrow \mathbf{f}_{p} /\left|\mathbf{f}_{p}\right|$<br>$\mathbf{F}_{p}=\left[\mathbf{f}_{p, 1}, \cdots, \mathbf{f}_{p, N}\right] \in \mathbb{R}^{C \times N}$<br>正则化器即正则化损失，输入是结构图中的同颜色的正方体（特征图），从以下两个部分构造正则化损失：1）最大化$S$的对角线以最大化同一激励模块内的相关性；2）惩罚$S$的范式以最小化不同激励模块之间的相关性；<br>代码实现：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">reg_loss_ulti = RegularLoss(gamma=gamma1, nparts=nparts)</span><br><span class="line">reg_loss_plty = RegularLoss(gamma=gamma2, nparts=nparts)</span><br><span class="line">reg_loss_cmbn = RegularLoss(gamma=gamma3, nparts=nparts)</span><br><span class="line"><span class="comment">###############################################</span></span><br><span class="line">outputs_ulti, outputs_plty, outputs_cmbn, ulti_ftrs, plty_ftrs, cmbn_ftrs = model(inputs)</span><br><span class="line">reg_loss_cmbn = reg_loss_cmbn(cmbn_ftrs)</span><br><span class="line">reg_loss_ulti = reg_loss_ulti(ulti_ftrs)</span><br><span class="line">reg_loss_plty = reg_loss_plty(plty_ftrs)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class RegularLoss(nn.Module):</span><br><span class="line"></span><br><span class="line">    def __init__(self, gamma=0, part_features=None, nparts=2):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        :param bs: batch size</span></span><br><span class="line"><span class="string">        :param ncrops: number of crops used at constructing dataset</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        super(RegularLoss, self).__init__()</span><br><span class="line">        <span class="comment">#self.register_buffer(&#x27;part_features&#x27;, part_features)</span></span><br><span class="line">        self.nparts = nparts</span><br><span class="line">        self.gamma = gamma</span><br><span class="line"></span><br><span class="line">    def forward(self, x):</span><br><span class="line">        assert isinstance(x, list), <span class="string">&quot;parts features should be presented in a list&quot;</span></span><br><span class="line">        corr_matrix = torch.zeros(self.nparts, self.nparts)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nparts):</span><br><span class="line">            x[i] = x[i].squeeze()</span><br><span class="line">            x[i] = torch.div(x[i], x[i].norm(dim=1, keepdim=True))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># original design</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nparts):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(self.nparts):</span><br><span class="line">                corr_matrix[i, j] = torch.mean(torch.mm(x[i], x[j].t()))</span><br><span class="line">                <span class="keyword">if</span> i == j:</span><br><span class="line">                    corr_matrix[i, j] = 1.0 - corr_matrix[i, j]</span><br><span class="line">        regloss = torch.mul(torch.sum(torch.triu(corr_matrix)), self.gamma).to(device)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">return</span> regloss</span><br></pre></td></tr></table></figure>
-<h2 id="跨层正则化-CL"><a href="#跨层正则化-CL" class="headerlink" title="跨层正则化($CL$)"></a>跨层正则化($CL$)</h2><p>利用CNN不同层次的语义特征对许多视觉任务都是有益的。将这种思想推广到细粒度识别的一个简单方法是将不同层的预测结果结合起来进行最终的预测。然而，这种简单的策略通常会导致较差的性能。 我们假设这个问题是由于两个原因造成的：1）中间层特征对输入变化更敏感，这使得它们对于类内变化较大的细粒度识别的鲁棒性降低；2）特征预测之间的关系没有被利用。为了解决这些问题，我们采用特征金字塔网络（FPN）来集成不同层的特征，并提出了一种新的跨层正则化方法（$CL$），通过匹配不同层之间的预测分布来学习鲁棒性特征。<br><img src="https://img-blog.csdnimg.cn/20210406214706240.png" alt=""></p>
-<script type="math/tex; mode=display">\mathbf{U}_{p}^{G}=\mathbf{B} \mathbf{N}\left(\mathbf{K}_{2} *\left(\mathbf{U}_{p}^{L-1}+\operatorname{Bilinear}\left(\mathbf{K}_{1} * \mathbf{U}_{p}^{L}\right)\right)\right)</script><p>$K1$, $K2$ are 1 × 1 and 3 × 3 filters<br>Bilinear(·) denotes bilinear interpolation<br>$\mathbf{U}^{G}$综合了中间层空间分辨率高和顶层语义丰富的特点。为了进一步挖掘特征预测之间的关系，作者提出了匹配不同层之间预测分布的CL正则化器。</p>
-<script type="math/tex; mode=display">\begin{aligned} \mathcal{L}_{C L}\left(\mathbf{P r}^{L}, \mathbf{P r}^{L-1}\right) &=\mathrm{KL}\left(\mathbf{P r}^{L} \| \mathbf{P r}^{L-1}\right) \\ &=\frac{1}{N} \sum_{n=1}^{N} \sum_{k=1}^{K} p_{n k}^{L} \log \frac{p_{n k}^{L}}{p_{n k}^{L-1}} \end{aligned}</script><p>$\mathbf{P r}^{L-1}=\sigma\left(f\left(U^{L-1}\right)\right)$<br>$\mathbf{P r}^{L}=\sigma\left(f\left(U^{L}\right)\right)$<br>$\sigma\left(·\right)$ is the softmax function<br>$f\left(·\right)$ denotes the output layer<br>最终的预测分类可以结合不同模块的输出：</p>
-<script type="math/tex; mode=display">\mathbf{P r}=\sigma\left(f\left(\mathbf{U}^{L}\right)+f\left(\mathbf{U}^{L-1}\right)+f\left(\mathbf{U}^{G}\right)\right)</script><p>最终损失为：</p>
-<script type="math/tex; mode=display">\mathcal{L}=\mathcal{L}_{\text {data }}+\gamma \mathcal{L}_{C^{3} S}+\lambda \mathcal{L}_{C L}</script><script type="math/tex; mode=display">\mathcal{L}_{\text {data }}=-\frac{1}{N} \sum_{n=1}^{N} \sum_{k=1}^{K} c_{n k} \log p_{n k}</script><script type="math/tex; mode=display">\mathcal{L}_{C^{3} S}=\gamma_{1} \mathcal{L}_{C^{3} S}\left(S^{L}\right)+\gamma_{2} \mathcal{L}_{C^{3} S}\left(S^{L-1}\right)+\gamma_{3} \mathcal{L}_{C^{3} S}\left(S^{G}\right)</script><script type="math/tex; mode=display">\mathcal{L}_{C L}=\lambda_{1} \mathcal{L}_{C L}\left(\mathbf{P r}^{L}, \mathbf{P r}^{L-1}\right)+\lambda_{2} \mathcal{L}_{C L}\left(\mathbf{P r}^{L}, \mathbf{P r}^{G}\right)</script>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>Most object recognition approaches predominantly focus on learning discriminative visual patterns while overlooking the holistic object structure. Though important, structure modeling usually requires significant manual annotations and therefore is labor-intensive. In this paper, we propose to “look into object” (explicitly yet intrinsically model the object structure) through incorporating self-supervisions into the traditional framework. We show the recognition backbone can be substantially enhanced for more robust representation learning, without any cost of extra annotation and inference speed. Specifically, we first propose an object-extent learning module for localizing the object according to the visual patterns shared among the instances in the same category. We then design a spatial context learning module for modeling the internal structures of the object, through predicting the relative positions within the extent. These two modules can be easily plugged into any backbone networks during training and detached at inference time. Extensive experiments show that our look-into-object approach (LIO) achieves large performance gain on a number of benchmarks, including generic object recognition (ImageNet) and fine-grained object recognition tasks (CUB, Cars, Aircraft). We also show that this learning paradigm is highly generalizable to other tasks such as object detection and segmentation (MS COCO). Project page: <a target="_blank" rel="noopener" href="https://github.com/JDAI-CV/LIO">https://github.com/JDAI-CV/LIO</a>.<span id="more"></span></p>
+<p>大多数的物体识别方法主要集中在学习有区别的视觉模式，而忽略了整体的物体结构。虽然很重要，但结构建模通常需要大量的手工注释，因此是劳动密集型的。在本文中，我们建议通过将自我监督整合到传统框架中来“研究对象”(明确而本质地建模对象结构)。我们证明了识别主干可以被大大增强，以获得更健壮的表示学习，而无需额外的注释和推理速度的代价。具体来说，我们首先提出一个对象范围学习模块，用于根据同一类别中的实例之间共享的可视化模式定位对象。然后，我们设计了一个空间情境学习模块，通过预测物体在范围内的相对位置来建模物体的内部结构。这两个模块可以很容易地在训练期间插入任何骨干网，并在推理时分离。大量的实验表明，我们的寻找对象方法(LIO)在一些基准测试中获得了很大的性能提升，包括通用对象识别(ImageNet)和细粒度对象识别任务(CUB, Cars, Aircraft)。我们还表明，这种学习模式是高度可推广到其他任务，如目标检测和分割(MS COCO)。项目页面:<a target="_blank" rel="noopener" href="https://github.com/JDAI-CV/LIO。">https://github.com/JDAI-CV/LIO。</a></p>
+<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><h2 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h2><p>•分类模块(CM):提取基本图像表示并产生最终对象类别的主干分类网络。<br>•对象范围学习模块(Object-Extent Learning, OEL):一个用于定位给定图像中的主要对象的模块。<br>•空间上下文学习模块(Spatial Context Learning Module, SCL):一个自我监督的模块，通过CM中特征单元(后面介绍)之间的相互作用来加强区域之间的联系。<br><img src="https://img-blog.csdnimg.cn/20210617104008566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="分类模块-Classification-Module-CM"><a href="#分类模块-Classification-Module-CM" class="headerlink" title="分类模块 Classification Module(CM)"></a>分类模块 Classification Module(CM)</h2><p>给定图像$I$，标签$l$，通过基本网络得到特征图$f(I)$，特征图大小为$N×N×C$，通过池化全连接层得到最后的特征向量$y(I)$，通过交叉熵损失来优化网络。</p>
+<script type="math/tex; mode=display">\mathcal{L}_{c l s}=-\sum_{I \in \mathcal{I}} l \cdot \log \boldsymbol{y}(I)</script><p>OEL模块和SCL模块旨在帮助我们的主干分类网络学习有利于结构理解和对象定位的表示。这两个模块都是轻量级的，只引入了少量的可学习参数。此外，在推理时禁用OEL和SCL，只需要分类模块来提高计算效率。</p>
+<h2 id="对象范围学习模块Object-Extent-Learning-OEL"><a href="#对象范围学习模块Object-Extent-Learning-OEL" class="headerlink" title="对象范围学习模块Object-Extent Learning (OEL)"></a>对象范围学习模块Object-Extent Learning (OEL)</h2><p>1.将特征图$f(I)$在像素维度上分成$N×N$个特征向量$\boldsymbol{f}(I)_{i, j} \in \mathbb{R}^{1 \times C}$$(1 \leq i, j \leq N)$，每个特征向量集中响应输入图像I中的某个区域。<br>2.采样和图片$I$具有相同标签的数据$\boldsymbol{I}^{\prime}=\left\{I_{1}^{\prime}, I_{2}^{\prime}, \cdots, I_{P}^{\prime}\right\}$，测量$f(I)_{i, j}$与同标签其他每幅图像$I^{\prime} \in \boldsymbol{I}^{\prime}$之间的区域级相关性。</p>
+<script type="math/tex; mode=display">\varphi_{i, j}\left(I, I^{\prime}\right)=\frac{1}{C} \max _{1 \leq i^{\prime}, j^{\prime} \leq N}\left\langle\boldsymbol{f}(I)_{i, j}, \boldsymbol{f}\left(I^{\prime}\right)_{i^{\prime}, j^{\prime}}\right\rangle</script><p>$\langle\cdot, \cdot\rangle$为点乘<br>—————————————————————————————————————<br><strong>关于这个公式联系下图开会时我也思考了一下：同类图片得到特征图之后，分成N*N份特征向量单元，点乘可以评估两个特征向量的相似程度，因此对每个特征单元分别进行点乘后选取最大的即表明对应的区域相似度最高，由此产生了对应于整个物体的特征。</strong><br>—————————————————————————————————————<br>3.与分类$L_{cls}$联合训练，相关分数的$\varphi_{i, j}\left(I, I^{\prime}\right)$通常与$l$的语义相关度呈正相关关系。<br>4.这种语义相关掩码$\varphi$可以很好地捕获来自同一类别的图像的共性，其中$\varphi$中的值自然地区分了主要目标区域和背景。考虑到视点变化和变形的影响，使用多个正图像来定位一个对象的主要区域。</p>
+<script type="math/tex; mode=display">M\left(I, \boldsymbol{I}^{\prime}\right)=\frac{1}{P} \sum_{p=1}^{P} \varphi\left(I, I_{p}^{\prime}\right)</script><p>$M\left(I, \boldsymbol{I}^{\prime}\right)$也可以被认为是同一类别图像之间共有的表征。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210616095026176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTE4OTY4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">5.在得到特征图$f(I)$后，对$f(I)$中所有特征映射进行加权融合。对特征进行1 × 1卷积处理，得到单通道的输出$m^{\prime}(I)$(实际上就是将特征集合起来以此得到目标的整体结构)。与传统的注意力的目的是检测某些特定的部分或区域不同，我们的OEL模块被训练为收集物体内部的所有区域，忽略背景或其他无关的物体。<br>OEL模块$\mathcal{L}_{\text {oel }}$可以定义为对象范围的伪掩模$M\left(I, \boldsymbol{I}^{\prime}\right)$与$m^{\prime}(I)$之间的距离:</p>
+<script type="math/tex; mode=display">\mathcal{L}_{\text {oel }}=\sum_{I \in \mathcal{I}} \operatorname{MSE}\left(m^{\prime}(I), M\left(I, \boldsymbol{I}^{\prime}\right)\right)</script><h2 id="空间上下文学习模块Spatial-Context-Learning-SCL"><a href="#空间上下文学习模块Spatial-Context-Learning-SCL" class="headerlink" title="空间上下文学习模块Spatial Context Learning (SCL)"></a>空间上下文学习模块Spatial Context Learning (SCL)</h2><p>此模块同样作用于$f(I)$，目的是学习区域之间的结构关系。首先，对$f(I)$进行1 × 1卷积加ReLU处理，得到新映射$\boldsymbol{h}(I) \in \mathbb{R}^{N \times N \times C_{1}}$，描述了不同特征元的空间信息。$\boldsymbol{h}(I)$中的每个cell(每个i, j位置)集中代表了图像$I$中一个区域的语义信息。通过建立不同区域之间的<strong>空间连接</strong>，可以很容易地建模对象不同部分之间的结构关系。<br>1.选用极坐标系来建模这种结构关系。$N×N$平面作为极坐标平面，原点为特征中值最大的位置$R_{o}=R_{x, y}$，区域$R_{i, j}$的极坐标可以写成$\left(\Gamma_{i, j}, \theta_{i, j}\right)$，此作为自监督的标签。<script type="math/tex">\begin{aligned} \Gamma_{i, j} &=\sqrt{(x-i)^{2}+(y-j)^{2}} / \sqrt{2} N \\ \theta_{i, j} &=(\operatorname{atan2}(y-j, x-i)+\pi) / 2 \pi \end{aligned}</script><br><img src="https://img-blog.csdnimg.cn/20210616201937356.png" alt="atan2"><br><img src="https://img-blog.csdnimg.cn/20210617104419668.png" alt="在这里插入图片描述"></p>
+<p>2.对每个cell $h(I)_{i, j}$和原点处$h(I)_{x, y}$在通道维度上进行级联，通过全连接层和relu激活函数，得到预测的极坐标$\left(\Gamma_{i, j}^{\prime}, \theta_{i, j}^{\prime}\right)$，从OEL模块学到的对象范围掩码$m^{\prime}(I)$(one channel)也适用于SCL模块。通过以下损失函数进行优化。</p>
+<script type="math/tex; mode=display">\mathcal{L}_{d i s}=\sum_{I \in \mathcal{I}} \sqrt{\frac{\sum_{1 \leq i, j \leq N} m^{\prime}(I)_{i, j}\left(\Gamma_{i, j}^{\prime}-\Gamma_{i, j}\right)^{2}}{\sum m^{\prime}(I)}}</script><script type="math/tex; mode=display">\mathcal{L}_{\angle}=\sum_{I \in \mathcal{I}} \sqrt{\frac{\sum_{1 \leq i, j \leq N} m^{\prime}(I)_{i, j}\left(\theta_{\Delta_{i, j}}-\bar{\theta}_{\Delta}\right)^{2}}{\sum m^{\prime}(I)}}</script><p>$\theta_{\Delta_{i, j}}=\left\{\begin{array}{ll}\theta_{i, j}^{\prime}-\theta_{i, j}, &amp; \text { if } \theta_{i, j}^{\prime}-\theta_{i, j} \geq 0 \\ 1+\theta_{i, j}^{\prime}-\theta_{i, j}, &amp; \text { otherwise }\end{array}\right.$<br>$\bar{\theta}_{\Delta}=\frac{1}{\sum m^{\prime}(I)} \sum_{1 \leq i, j \leq N} m^{\prime}(I)_{i, j} \theta_{\Delta_{i, j}}$<br>3.SCL模块的损失为：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{s c l}=\mathcal{L}_{d i s}+\mathcal{L}_{L}</script><h2 id="联合训练"><a href="#联合训练" class="headerlink" title="联合训练"></a>联合训练</h2><p>分类、对象范围学习和空间上下文学习模块以端到端方式进行训练</p>
+<script type="math/tex; mode=display">\mathcal{L}=\mathcal{L}_{c l s}+\alpha \mathcal{L}_{o e l}+\beta \mathcal{L}_{s c l}</script><p>$\alpha=\beta=0.1$</p>
+
     </div>
 
     
@@ -330,7 +331,7 @@
           <div class="post-tags">
               <a href="/tags/%E5%88%86%E7%B1%BB/" rel="tag"># 分类</a>
               <a href="/tags/%E7%BB%86%E7%B2%92%E5%BA%A6/" rel="tag"># 细粒度</a>
-              <a href="/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B/" rel="tag"># 注意力</a>
+              <a href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag"># 自监督</a>
           </div>
 
         
@@ -339,12 +340,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Learning%20Semantically%20Enhanced%20Feature%20for%20Fine-Grained%20Image%20Classification/" rel="prev" title="Learning Semantically Enhanced Feature for Fine-Grained Image Classification">
-      <i class="fa fa-chevron-left"></i> Learning Semantically Enhanced Feature for Fine-Grained Image Classification
+    <a href="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91The%20Devil%20is%20in%20the%20Channels_%20Mutual-Channel%20Loss%20for%20Fine-Grained%20Image%20Classification.html" rel="prev" title="The Devil is in the Channels, Mutual-Channel Loss for Fine-Grained Image Classification">
+      <i class="fa fa-chevron-left"></i> The Devil is in the Channels, Mutual-Channel Loss for Fine-Grained Image Classification
     </a></div>
       <div class="post-nav-item">
-    <a href="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91BBN_%20Bilateral-Branch%20Network%20with%20Cumulative%20Learning%20for%20Long-Tailed%20Visual%20Recognition/" rel="next" title="BBN Bilateral-Branch Network with Cumulative Learning for Long-Tailed Visual Recognition">
-      BBN Bilateral-Branch Network with Cumulative Learning for Long-Tailed Visual Recognition <i class="fa fa-chevron-right"></i>
+    <a href="/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Learning%20Semantically%20Enhanced%20Feature%20for%20Fine-Grained%20Image%20Classification.html" rel="next" title="Learning Semantically Enhanced Feature for Fine-Grained Image Classification">
+      Learning Semantically Enhanced Feature for Fine-Grained Image Classification <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -405,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSME%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">OSME模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E7%B1%BB%E5%88%AB%E8%B7%A8%E8%AF%AD%E4%B9%89%E6%AD%A3%E5%88%99%E5%8C%96-C-3-S"><span class="nav-number">2.2.</span> <span class="nav-text">跨类别跨语义正则化($C^{3} S$)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E5%B1%82%E6%AD%A3%E5%88%99%E5%8C%96-CL"><span class="nav-number">2.3.</span> <span class="nav-text">跨层正则化($CL$)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="nav-number">2.1.</span> <span class="nav-text">整体框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9D%97-Classification-Module-CM"><span class="nav-number">2.2.</span> <span class="nav-text">分类模块 Classification Module(CM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E8%8C%83%E5%9B%B4%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97Object-Extent-Learning-OEL"><span class="nav-number">2.3.</span> <span class="nav-text">对象范围学习模块Object-Extent Learning (OEL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97Spatial-Context-Learning-SCL"><span class="nav-number">2.4.</span> <span class="nav-text">空间上下文学习模块Spatial Context Learning (SCL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E5%90%88%E8%AE%AD%E7%BB%83"><span class="nav-number">2.5.</span> <span class="nav-text">联合训练</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -623,7 +624,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html',]
       });
       });
   </script>
@@ -721,7 +722,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Cross-X%20Learning%20for%20Fine-Grained%20Visual%20Categorization/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://aydenfan.github.io/%E3%80%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E3%80%91Look-into-Object_%20Self-supervised%20Structure%20Modeling%20for%20Object%20Recognition.html',]
       });
       });
   </script>
